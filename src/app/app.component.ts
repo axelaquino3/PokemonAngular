@@ -1,23 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PokemonViewComponent } from './pokemon-view/pokemon-view.component';
+import { HeaderComponent } from './header/header.component';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet, 
+    PokemonViewComponent,
+    HeaderComponent,
+    MatCardModule,
+    HttpClientModule,
+  ],
+  providers: [DataService],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'Pokemon_Angular_Project';
-  details!:any;
   
-  ngOnInit() {
-    const url = 'https://pokeapi.co/api/v2/pokemon?limit=151';
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      this.details = data;
-    });
-  }
 }
