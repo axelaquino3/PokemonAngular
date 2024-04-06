@@ -1,6 +1,36 @@
-<div>
-    @for(pokemon of pokemons; track pokemon.name){
-        <img src={{pokemon.sprites.front_default}}>
-        <h1>{{pokemon.name}}</h1>
-    }
+<div class="pokemon-grid">
+    <div class="box" *ngFor="let pokemon of pokemons">
+        <img src="{{pokemon.sprites.front_default}}" alt="Pokemon">
+        <h3>{{ pokemon.name }}</h3>
+        <p>
+            <b>Type: </b> {{pokemon.types[0].type.name }}
+        </p>
+        <p>
+            <b>Height: </b> {{pokemon.height}}
+        </p>
+        <p>
+            <b>Health: </b> {{pokemon.stats[0].base_stat}}
+        </p>
+        <p>
+            <b>Attaack Power: </b> {{pokemon.stats[1].base_stat}}
+        </p>
+    </div>
+    
 </div>
+
+
+
+
+
+    <!-- @for(pokemon of pokemons; track pokemon.name){
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{pokemon.name}}</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+            </mat-card-header>
+        <img mat-card-image src={{pokemon.sprites.front_default}}>
+        <h1></h1>
+            
+        </mat-card>
+        
+    } -->

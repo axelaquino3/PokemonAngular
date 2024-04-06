@@ -14,7 +14,7 @@ export class DataService {
 
 
   public getPokemonData(): Observable<any> {
-    return this.http.get<any>("https://pokeapi.co/api/v2/pokemon?limit=151")
+    return this.http.get<any>("https://pokeapi.co/api/v2/pokemon?limit=10")
    }
  
    public getMorePokemonData(name: string): Observable<any> {
